@@ -1,0 +1,52 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+version = '7.10.2'
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Product code plugin',
+            'Implementation-Version': archiveVersion
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation group: 'commons-collections', name: 'commons-collections', version: '3.2'
+  implementation group: 'org.elasticsearch', name: 'elasticsearch', version: version
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+  testImplementation group: 'junit', name: 'junit', version: '4.+'
+  implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+}
+
+test {
+  systemProperties 'property': 'value'
+}
+
+publishing {
+  repositories {
+    flatDir {
+      dirs 'repos'
+    }
+  }
+}
+
+task buildPluginZip(type: Zip, dependsOn:[':jar']) {
+  archiveBaseName = 'product-code-plugin'
+  classifier = 'plugin'
+  from 'build/libs'
+  from 'src/main/resources'
+}
+
+artifacts {
+  archives buildPluginZip
+}
+
+[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+[ compileJava, compileTestJava ]*.options*.compilerArgs = ['-Xlint:-options']
