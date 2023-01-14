@@ -13,7 +13,8 @@ public class ProductCodeParseUtil {
 
     private boolean isProductCode(String inputString)
     {
-        String pattern = "^[a-zA-Z][0-9]*$";
-        return Pattern.matches(pattern,inputString);
+        String pattern = "^[a-zA-Z]+[0-9]*$";
+        String secondPattern = "^[0-9a-zA-Z]+\\-+[0-9]*$";
+        return Pattern.matches(pattern,inputString) || Pattern.matches(secondPattern,inputString);
     }
 }
