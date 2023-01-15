@@ -12,6 +12,7 @@ public class ProductCodeTokenizerFactory extends AbstractTokenizerFactory {
 
     @Override
     public Tokenizer create() {
+        //TODO : make tokenizer when i need
         return null;
     }
 }

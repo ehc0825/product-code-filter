@@ -5,6 +5,7 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.elasticsearch.plugin.analysis.util.CodeAnalyzerUtil;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,17 +27,13 @@ public class ProductCodeTokenizer extends Tokenizer {
 
     @Override
     public boolean incrementToken() throws IOException {
-        if(position >= tokens.size())
+        //TODO : make tokenizer when i need
+        while (true)
         {
-            position = 0;
-            return false;
-        }
-        else {
-            String token = tokens.get(position);
-            charAttr.setEmpty().append(token);
-            charAttr.setLength(token.length());
-            position++;
-            return true;
+
         }
     }
+
+
+
 }
