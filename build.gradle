@@ -7,7 +7,7 @@ compileJava.options.encoding = 'UTF-8'
 version = '7.10.2'
 jar {
   manifest {
-    attributes 'Implementation-Title': 'Product code plugin',
+    attributes 'Implementation-Title': 'testkkma',
             'Implementation-Version': archiveVersion
   }
 }
@@ -32,18 +32,22 @@ test {
 publishing {
   repositories {
     flatDir {
-      dirs 'repos'
+      dirs 'libs'
     }
   }
 }
 
+task fatJar(type: Jar) {
+  from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+  with jar
+}
+
 task buildPluginZip(type: Zip, dependsOn:[':jar']) {
-  archiveBaseName = 'product-code-plugin'
+  archiveBaseName = 'kkma-analyzer'
   classifier = 'plugin'
   from 'build/libs'
   from 'src/main/resources'
 }
-
 artifacts {
   archives buildPluginZip
 }

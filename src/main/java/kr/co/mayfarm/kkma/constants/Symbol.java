@@ -1,0 +1,154 @@
+package kr.co.mayfarm.kkma.constants;
+
+
+import java.util.Hashtable;
+
+public class Symbol {
+    private static final Hashtable<String, Long> SYMBOL_TYPE_HASH = new Hashtable();
+
+    public Symbol() {
+    }
+
+    public static final long getSymbolTag(String symbol) {
+        Long lv = (Long)SYMBOL_TYPE_HASH.get(symbol);
+        return lv == null ? POSTag.SW : lv;
+    }
+
+    static {
+        SYMBOL_TYPE_HASH.put("...", POSTag.SE);
+        SYMBOL_TYPE_HASH.put("‥", POSTag.SE);
+        SYMBOL_TYPE_HASH.put("…", POSTag.SE);
+        SYMBOL_TYPE_HASH.put("!", POSTag.SF);
+        SYMBOL_TYPE_HASH.put(".", POSTag.SF);
+        SYMBOL_TYPE_HASH.put("?", POSTag.SF);
+        SYMBOL_TYPE_HASH.put("？", POSTag.SF);
+        SYMBOL_TYPE_HASH.put("\u00ad", POSTag.SO);
+        SYMBOL_TYPE_HASH.put("~", POSTag.SO);
+        SYMBOL_TYPE_HASH.put("～", POSTag.SO);
+        SYMBOL_TYPE_HASH.put("∼", POSTag.SO);
+        SYMBOL_TYPE_HASH.put(",", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("，", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("/", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("／", POSTag.SP);
+        SYMBOL_TYPE_HASH.put(":", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("：", POSTag.SP);
+        SYMBOL_TYPE_HASH.put(";", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("；", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("·", POSTag.SP);
+        SYMBOL_TYPE_HASH.put("'", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("\"", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("(", POSTag.SS);
+        SYMBOL_TYPE_HASH.put(")", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("）", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("[", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("]", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("`", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("｀", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("{", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("}", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("˝", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("‘", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("’", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("“", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("”", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("〈", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("〉", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("《", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("》", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("「", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("」", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("『", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("』", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("【", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("】", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("〔", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("〕", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("〃", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("<", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("＜", POSTag.SS);
+        SYMBOL_TYPE_HASH.put(">", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("＞", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("≪", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("≫", POSTag.SS);
+        SYMBOL_TYPE_HASH.put("㎀", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎁", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎂", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎃", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎄", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎈", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎉", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎊", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎋", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎌", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎍", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎎", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎏", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎐", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎑", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎒", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎓", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎔", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎕", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎖", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎗", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎘", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎙", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎚", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎛", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎜", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎝", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎞", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎟", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎠", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎡", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎢", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎣", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎤", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎥", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎦", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎧", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎨", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎩", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎪", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎫", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎬", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎭", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎮", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎯", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎰", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎱", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎲", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎳", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎴", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎵", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎶", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎷", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎸", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎹", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎺", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎻", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎼", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎽", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎾", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㎿", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏀", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏁", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏂", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏃", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏄", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏅", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏆", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏇", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏈", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏉", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏊", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏏", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏐", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏓", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏖", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏘", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏛", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏜", POSTag.NNM);
+        SYMBOL_TYPE_HASH.put("㏝", POSTag.NNM);
+    }
+}
